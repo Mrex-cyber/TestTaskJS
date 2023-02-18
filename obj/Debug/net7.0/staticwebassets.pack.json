@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\createEvent.html",
+      "PackagePath": "staticwebassets\\createEvent.html"
+    },
+    {
+      "Id": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\createUser.html",
+      "PackagePath": "staticwebassets\\createUser.html"
+    },
+    {
+      "Id": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\userPage.html",
+      "PackagePath": "staticwebassets\\userPage.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.TestTaskJS.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.TestTaskJS.props",
+      "PackagePath": "build\\TestTaskJS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.TestTaskJS.props",
+      "PackagePath": "buildMultiTargeting\\TestTaskJS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.TestTaskJS.props",
+      "PackagePath": "buildTransitive\\TestTaskJS.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

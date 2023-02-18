@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "8cSNdvzSDBch02L+/jpTKcktNeLpvS9IzTFhFCpSn1c=",
+  "Source": "TestTaskJS",
+  "BasePath": "_content/TestTaskJS",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TestTaskJS\\wwwroot",
+      "Source": "TestTaskJS",
+      "ContentRoot": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\",
+      "BasePath": "_content/TestTaskJS",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\createEvent.html",
+      "SourceId": "TestTaskJS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\",
+      "BasePath": "_content/TestTaskJS",
+      "RelativePath": "createEvent.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\createEvent.html"
+    },
+    {
+      "Identity": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\createUser.html",
+      "SourceId": "TestTaskJS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\",
+      "BasePath": "_content/TestTaskJS",
+      "RelativePath": "createUser.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\createUser.html"
+    },
+    {
+      "Identity": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\index.html",
+      "SourceId": "TestTaskJS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\",
+      "BasePath": "_content/TestTaskJS",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\userPage.html",
+      "SourceId": "TestTaskJS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Pet-projects\\TestTaskJS\\TestTaskJS\\wwwroot\\",
+      "BasePath": "_content/TestTaskJS",
+      "RelativePath": "userPage.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\userPage.html"
+    }
+  ]
+}

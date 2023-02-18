@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Creating item</title>
+
+    <style>
+        input:checked {
+            text-decoration: line-through;
+            color: red;
+        }
+
+        input, label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create User</h1>
+    <form>
+        <div class="inputClass">
+            <input type="hidden" id="itemId" />
+
+            <label for="title">Title</label>
+            <input id="title" />
+
+            <label for="description">Description:</label>
+            <input id="description" />
+
+            <label for="startDate">Start date:</label>
+            <input id="startDate" />
+
+            <label for="endDate">End date:</label>
+            <input id="endDate" />
+
+            <button id="addBtn">Create Item</button>
+        </div>
+    </form>
+
+    <script>
+        async function createItem(title, description, startDate, endDate) {
+
+            const response = await fetch("/api/item/add", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title: title,
+                    description: description,
+                    startDate: startDate,
+                    endDate: endDate
+                })
+            });
+        }
+
+        document.getElementById("addBtn").addEventListener("click", async () => {
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const startDate = document.getElementById("startDate").value;
+            const endDate = document.getElementById("endDate").value;
+
+            await createItem(title, description, startDate, endDate);
+        });
+    </script>
+</body>
+</html>

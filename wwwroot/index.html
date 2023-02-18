@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>TestJS</title>
+    <style>
+        td {
+            padding: 5px;
+        }
+
+        button {
+            margin: 5px;
+            width: 100px;
+            height: 50px;
+        }
+
+       
+        #createUserBtn {
+            background-color: lightgray;
+            height: 50px;
+            width: 100px;
+            text-align: center;
+            padding-top: 30px ;
+            border-radius: 15px;
+        }
+            #createUserBtn:hover {
+                background-color: darkgray;
+            }
+    </style>
+</head>
+<body>
+    <div id="createUserBtn"><a href="createUser.html" style="text-decoration: none; color: green;"><b>Create user</b></a></div>
+    
+    <table>
+        <thead>
+            <tr><td>Id:</td><td>Users</td><td>Phone:</td><td>Email:</td><td>Count:</td><td>Last date of event:</td></tr>
+        </thead>
+        <tbody id="usertbody">
+        </tbody>
+    </table>
+    <div id="userPage" style="margin:20px">
+        <h2 id="userName">User page: </h2>
+        <div id="createEventBtn"><a href="createEvent.html" style="text-decoration: none; color: green;"><b>Create event</b></a></div>
+
+        <table>
+            <thead>
+                <tr><td>Id:</td><td>Title</td><td>Description:</td><td>Start date:</td><td>End date:</td></tr>
+            </thead>
+            <tbody id="eventtbody">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function getUsers() {
+
+            const response = await fetch("/api/users", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok === true) {
+
+                const users = await response.json();
+                const rows = document.getElementById("usertbody");
+                users.forEach(user => rows.appendChild(row(user)));
+            }
+        }       
+
+        function row(user) {
+
+            const tr = document.createElement("tr");
+
+            const labelId = document.createElement("label");
+            labelId.setAttribute("userId", user.id);
+            labelId.innerText = `${user.id}`;
+
+            const buttonUser = document.createElement("button");
+            buttonUser.setAttribute("onclick", `getUser(${user.id})`);
+            buttonUser.innerText = `${user.userName}`;
+
+            const labelEmail = document.createElement("label");
+            labelEmail.setAttribute("userId", user.id);
+            labelEmail.innerText = `${user.email}`;
+
+            const labelPhone = document.createElement("label");
+            labelPhone.setAttribute("userId", user.id);
+            labelPhone.innerText = `${user.phoneNumber}`;
+
+            const labelEventsCount = document.createElement("label");
+            labelEventsCount.setAttribute("userId", user.id);
+            labelEventsCount.innerText = `${user.eventsCount}`;
+
+            const labelNextEvent = document.createElement("label");
+            labelNextEvent.setAttribute("userId", user.id);
+            labelNextEvent.innerText = `${user.nextEventDate}`;
+
+            const idTd = document.createElement("td");
+            const nameTd = document.createElement("td");
+            const emailTd = document.createElement("td");
+            const phoneTd = document.createElement("td");
+            const eventCountsTd = document.createElement("td");
+            const nextEventTd = document.createElement("td");
+
+            idTd.appendChild(labelId);
+            nameTd.appendChild(buttonUser);
+            emailTd.appendChild(labelEmail);
+            phoneTd.appendChild(labelPhone);
+            eventCountsTd.appendChild(labelEventsCount);
+            nextEventTd.appendChild(labelNextEvent);
+
+            tr.append(idTd);
+            tr.append(nameTd);
+            tr.append(emailTd);
+            tr.append(phoneTd);
+            tr.append(eventCountsTd);
+            tr.append(nextEventTd);
+
+            return tr;
+        }
+
+        getUsers();
+
+
+        async function getUser(id) {
+
+            const response = await fetch(`/api/users/${id}`, {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            if (response.ok === true) {
+                const userEvents = await response.json();
+                const list = document.getElementById("eventtbody");
+
+                userEvents.forEach(userEvent => list.appendChild(rowEvent(userEvent)));
+            }
+            else {
+                
+                const error = await response.json();
+                console.log(error.message);
+            }
+        }
+        
+        function rowEvent(userEvent) {
+
+            const tr = document.createElement("tr");
+
+            const labelId = document.createElement("label");
+            labelId.setAttribute("eventId", userEvent.id);
+            labelId.innerText = `${user.id}`;
+
+            const labelTitle = document.createElement("button");
+            labelTitle.setAttribute("eventId", userEvent.id);
+            labelTitle.innerText = `${userEvent.title}`;
+
+            const labelDescription = document.createElement("label");
+            labelDescription.setAttribute("userId", userEvent.id);
+            labelDescription.innerText = `${userEvent.description}`;
+
+            const labelStartDate = document.createElement("label");
+            labelStartDate.setAttribute("eventId", userEvent.id);
+            labelStartDate.innerText = `${userEvent.startDate}`;
+
+            const labelEndDate = document.createElement("label");
+            labelEndDate.setAttribute("eventId", userEvent.id);
+            labelEndDate.innerText = `${userEvent.endDate}`;
+
+            const idTd = document.createElement("td");
+            const titleTd = document.createElement("td");
+            const descriptionTd = document.createElement("td");
+            const startDateTd = document.createElement("td");
+            const endDateTd = document.createElement("td");
+
+            idTd.appendChild(labelId);
+            titleTd.appendChild(labelTitle);
+            descriptionTd.appendChild(labelDescription);
+            startDateTd.appendChild(labelStartDate);
+            endDateTd.appendChild(labelEndDate);
+
+            tr.append(idTd);
+            tr.append(titleTd);
+            tr.append(descriptionTd);
+            tr.append(startDateTd);
+            tr.append(endDateTd);
+
+            return tr;
+        }
+    </script>
+</body>
+</html>

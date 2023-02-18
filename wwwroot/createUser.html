@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Creating user</title>
+
+    <style>
+        input:checked {
+            text-decoration: line-through;
+            color: red;
+        }
+        input, label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create User</h1>
+    <form>
+        <div class="inputClass">
+            <input type="hidden" id="userId" />
+
+            <label for="firstName">First name:</label>
+            <input id="firstName" />
+            <label for="lastName">Last name:</label>
+            <input id="lastName" />
+
+            <label for="userEmail">Email:</label>
+            <input id="userEmail" />
+
+            <label for="userPhone">PhoneNumber:</label>
+            <input id="userPhone" />
+
+            <button id="addBtn">Create User</button>
+        </div>
+    </form>
+
+    <script>
+        async function createItem(firstName, lastName, userEmail, userPhone) {
+
+            const response = await fetch("/api/user/add", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    userName: firstName + " " + lastName,
+                    email: userEmail,
+                    phoneNumber: userPhone
+                })
+            });
+
+            
+        }
+
+        document.getElementById("addBtn").addEventListener("click", async () => {
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const userEmail = document.getElementById("userEmail").value;
+            const userPhone = document.getElementById("userPhone").value;
+
+            await createItem(firstName, lastName, userEmail, userPhone);
+        });
+    </script>
+</body>
+</html>

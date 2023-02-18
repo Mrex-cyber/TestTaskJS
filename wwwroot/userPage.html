@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>User page</title>
+</head>
+<body>
+    <h1 id="userName">User name: </h1>
+    <div id="createEventBtn"><a href="createEvent.html" style="text-decoration: none; color: green;"><b>Create event</b></a></div>
+
+    <table>
+        <thead>
+            <tr><td>Id:</td><td>Title</td><td>Description:</td><td>Start date:</td><td>End date:</td></tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+
+        async function getUserWithId(id) {
+            const response = await fetch("api/user/{id}", {
+                method: "GET",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id: id
+                })
+            });
+            if (response.ok === true) {
+                const user = await response.json();
+                const list = document.getElementById("listOfEvents");
+                const userTitle = document.getElementById("userName");
+                userTitle.innerText = user.userName;
+
+                user.userEvents.forEach(userEvent => list.append(row(userEvent)));
+            }
+            else {
+                const error = await response.json();
+                console.log(error.message);
+            }
+        }
+
+        function row(userEvent) {
+
+            const tr = document.createElement("tr");
+
+            const labelId = document.createElement("label");
+            labelId.setAttribute("eventId", userEvent.id);
+            labelId.innerText = `${user.id}`;
+
+            const labelTitle = document.createElement("button");
+            labelTitle.setAttribute("eventId", userEvent.id);
+            labelTitle.innerText = `${userEvent.title}`;
+
+            const labelDescription = document.createElement("label");
+            labelDescription.setAttribute("userId", userEvent.id);
+            labelDescription.innerText = `${userEvent.description}`;
+
+            const labelStartDate = document.createElement("label");
+            labelStartDate.setAttribute("eventId", userEvent.id);
+            labelStartDate.innerText = `${userEvent.startDate}`;
+
+            const labelEndDate = document.createElement("label");
+            labelEndDate.setAttribute("eventId", userEvent.id);
+            labelEndDate.innerText = `${userEvent.endDate}`;
+
+            const idTd = document.createElement("td");
+            const titleTd = document.createElement("td");
+            const descriptionTd = document.createElement("td");
+            const startDateTd = document.createElement("td");
+            const endDateTd = document.createElement("td");
+
+            idTd.appendChild(labelId);
+            titleTd.appendChild(labelTitle);
+            descriptionTd.appendChild(labelDescription);
+            startDateTd.appendChild(labelStartDate);
+            endDateTd.appendChild(labelEndDate);
+
+            tr.append(idTd);
+            tr.append(titleTd);
+            tr.append(descriptionTd);
+            tr.append(startDateTd);
+            tr.append(endDateTd);
+
+            return tr;
+        }
+
+    </script>
+</body>
+</html>
